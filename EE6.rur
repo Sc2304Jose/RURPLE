@@ -1,0 +1,27 @@
+import random
+def turn_right(Robot):
+    repeat(Robot.turn_left,3)
+Robot=UsedRobot(10,1,'s')
+flag=True
+while flag:
+    number=random.randint(1,6)
+    if number<=4:
+        print('valor del dado',number,'izquierda')
+        turn_right(Robot)
+        for i in range(number):
+            if Robot.on_beeper():
+                print("estoy a la izquierda")
+                flag=False
+                Robot.turn_off()
+            Robot.move()
+        Robot.turn_left()
+    else:
+        print('valor del dado',number,'derecha')
+        Robot.turn_left()
+        for i in range(number):
+            if Robot.on_beeper():
+                print("estoy a la derecha")
+                flag=False
+                Robot.turn_off()
+            Robot.move()
+        turn_right(Robot)

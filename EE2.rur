@@ -1,0 +1,28 @@
+def linear_vowel():
+    move()
+    i=0
+    while not on_beeper():
+        i = i+1
+        if left_is_clear():
+            turn_left()
+            move()
+        elif front_is_clear():
+            move()
+        else:
+            repeat(turn_left,2)
+    if i==15:
+        print ("la vocal es la A")
+    elif i == 21:
+        print ("la vocal es la E")
+    elif i == 19:
+        print ("la vocal es la I")
+    elif i == 11:
+        print ("la vocal es la 0")
+    elif i == 17:
+        print ("la vocal es la U")
+    else: 
+        print("no is a vowel")
+    turn_left()
+linear_vowel()
+pick_beeper
+turn_off()

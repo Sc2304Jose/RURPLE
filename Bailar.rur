@@ -1,0 +1,14 @@
+print("vamos a recorrer la pista de baile")
+R1=UsedRobot(7,1,colour='yellow')
+R2=UsedRobot(6,2,colour='blue')
+
+for j in range(4):
+    for  i in range(5):
+        R1.move()
+        R2.move()
+    R1.turn_left()
+    R2.turn_left()
+    R1.set_delay(1)
+    R2.set_delay(1)
+R1.turn_off()
+R2.turn_off()

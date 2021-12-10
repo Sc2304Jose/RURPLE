@@ -1,0 +1,33 @@
+def turn_rigth():
+    repeat(R1.turn_left,3)
+def escalera(x):
+    n=(x*(x+1))/2
+    return n
+
+num_esc = input_int("numero de escalones")
+num_bps = escalera(num_esc)
+
+    
+R1 =UsedRobot(1,1,'E',num_bps)
+R1.set_delay(0.1)    
+c= num_esc+1
+
+for i in range(1,num_esc+1):
+    for j in range(1,c-1):
+        R1.put_beeper()
+        R1.move()
+    R1.put_beeper()
+    if i ==num_esc:
+        break
+    if i % 2 == 0:
+        turn_rigth()
+        R1.move()
+        turn_rigth()
+        R1.move()
+    else:
+        R1.turn_left()
+        R1.move()
+        R1.turn_left()
+    c=c-1
+    
+R1.turn_off()

@@ -1,0 +1,595 @@
+[10:50 a. m.] Martha Lucía Cano Morales
+    #programa para subir una montaña
+#el robot debe subir y bajar la montaña donde no
+#hay beeeper y recoger el beeper donde si hay beeper
+#dificultad 1: los beepers pueden estar en cualquier escalón
+#dificultad 2: el robot puede no caragr beepers en el bolsillo
+#dificultad 3: la montaña puede inciar en cualquie avenida
+#dificultad 4: la montaña puede tener cualquier altura
+#dificultad 5: Si hay varios beepers en un mismo lugar debe recogerlos
+#hasta que solo quede uno
+def turn_right():
+repeat(turn_left,3)
+def buscar_beeper():
+while on_beeper():
+pick_beeper()
+put_beeper()
+def subir_escalon():
+buscar_beeper()
+turn_left()
+move()
+turn_right()
+move()
+def bajar_escalon():
+buscar_beeper()
+move()
+turn_right()
+move()
+turn_left()
+#el robot se mueve hasta que encuentra la base de la montaña
+while front_is_clear():
+move()
+#se debe subir escalones mientras haya un muro enfrente
+escalones=0 #esta variable lleva el conteo de escalones
+while not front_is_clear(): #el uso del not permite saber que hay un muro en frente
+subir_escalon()
+escalones=escalones+1
+print "hay", escalones, "escalones"
+for i in range(escalones):
+bajar_escalon()
+buscar_beeper()
+move()
+turn_off()
+
+
+#carrera de robots
+import random #importar librería random
+
+R1=UsedRobot(avenues=12,streets=1,orient_key='W',colour='blue', name='Roberto')
+R2=UsedRobot(12,2,orient_key='W',colour='light blue', name='Arturito')
+R3=UsedRobot(12,3,orient_key='W',colour='purple', name='Albertico')
+R4=UsedRobot(12,4,orient_key='W',colour='yellow', name='BIBI')
+R5=UsedRobot(12,5,orient_key='W',colour='green', name='Baymax')
+
+print "ingrese su nombre"
+nombre=input_string()
+
+print "ingrese su robot ganador"
+ganador=input_int() #toma un número ingresado por el usuario
+
+while (R1.front_is_clear() and R2.front_is_clear()and R3.front_is_clear() and R4.front_is_clear() and R5.front_is_clear()) :
+for j in range(random.randrange(5)):
+if not R1.front_is_clear():
+break #termina el bucle que lo contenga. En este caso el for
+R1.move()
+for k in range(random.randrange(5)):
+if not R2.front_is_clear():
+break
+R2.move()
+for l in range(random.randrange(5)):
+R3.move()
+if not R3.front_is_clear():
+break
+for m in range(random.randrange(5)):
+if not R4.front_is_clear():
+break
+R4.move()
+for n in range(random.randrange(5)):
+if not R5.front_is_clear():
+break
+R5.move()
+
+if (not R1.front_is_clear() and ganador == 1):
+print "felicitaciones", nombre,", tu robot", R1.name, "ha ganado"
+elif (not R2.front_is_clear() and ganador == 2):
+print "felicitaciones", nombre,", tu robot", R2.name, " ha ganado"
+elif (not R3.front_is_clear() and ganador == 3):
+print "felicitaciones", nombre,", tu robot", R3.name, " ha ganado"
+elif (not R4.front_is_clear() and ganador == 4):
+print "felicitaciones", nombre,", tu robot", R4.name, " ha ganado"
+elif (not R5.front_is_clear() and ganador == 5):
+print "felicitaciones", nombre,", tu robot", R5.name, " ha ganado"
+else:
+print "lo siento", nombre," has perdido"
+
+R1.turn_off()
+R2.turn_off()
+R3.turn_off()
+R4.turn_off()
+R5.turn_off()
+
+
+#otra parte del programa
+#baile?
+R1.turn_left()
+R1.turn_left()
+R1.turn_left()
+R1.move()
+R1.set_delay(3) #da un tiempo de espera antes de ejecutar la siguiente instruccion
+R1.turn_left()
+R1.set_delay(2)
+R1.move()
+
+
+
+
+
+##############
+print("Bienvenidos Al Proyecto Final")
+name1=input_string("digite nombre del primer jugador")
+r1=UsedRobot(1,1,'s',colour='blue')
+name2=input_string("digite nombre del segundo jugador")
+r2=UsedRobot(5,1,'s',colour='yellow')
+# dec variables
+global a
+a=0
+b1=[]
+b2=[]
+cont=[]
+cont2=[]
+mov=0
+mov2=0
+
+#Movimientos de los jugadores
+def mov11():
+    global mov1
+    global cont
+    if mov1==1:
+        r11=UsedRobot(2,4,'s',colour='blue')
+        cont.append(r11)
+    elif mov1==2:
+        r12=UsedRobot(3,4,'s',colour='blue')
+        cont.append(r12)
+    elif mov1==3:
+        r13=UsedRobot(4,4,'s',colour='blue')
+        cont.append(r13)
+    elif mov1==4:
+        r14=UsedRobot(2,3,'s',colour='blue')
+        cont.append(r14)        
+    elif mov1==5:
+        r15=UsedRobot(3,3,'s',colour='blue')
+        cont.append(r15)
+    elif mov1==6:
+        r16=UsedRobot(4,3,'s',colour='blue')
+        cont.append(r16) 
+    elif mov1==7:
+        r17=UsedRobot(2,2,'s',colour='blue')
+        cont.append(r17)
+    elif mov1==8:
+        r18=UsedRobot(3,2,'s',colour='blue')
+        cont.append(r18)
+    elif mov1==9:
+        r19=UsedRobot(4,2,'s',colour='blue')
+        cont.append(r19)       
+        
+def mov22():
+    global mov2
+    if mov2==1:
+        r21=UsedRobot(2,4,'s',colour='yellow')
+        cont.append(r21)
+    elif mov2==2:
+        r22=UsedRobot(3,4,'s',colour='yellow')
+        cont.append(r22)
+    elif mov2==3:
+        r23=UsedRobot(4,4,'s',colour='yellow')
+        cont.append(r23)
+    elif mov2==4:
+        r24=UsedRobot(2,3,'s',colour='yellow')
+        cont.append(r24)        
+    elif mov2==5:
+        r25=UsedRobot(3,3,'s',colour='yellow')
+        cont.append(r25)
+    elif mov2==6:
+        r26=UsedRobot(4,3,'s',colour='yellow')
+        cont.append(r26) 
+    elif mov2==7:
+        r27=UsedRobot(2,2,'s',colour='yellow')
+        cont.append(r27)
+    elif mov2==8:
+        r28=UsedRobot(3,2,'s',colour='yellow')
+        cont.append(r28)
+    elif mov2==9:
+        r29=UsedRobot(4,2,'s',colour='yellow')
+        cont.append(r29)
+        
+# Verificador de Movimientos               
+def rep1():
+    global mov1
+    mov1=input_int("Ingresa el numero del espacio donde te ubicaras")
+    b1.append(mov1)
+    print b1
+    while b1.count(mov1) ==2:
+        b1.remove(mov1)
+        print b1
+        print (" posicion invalidad, ERORRR")
+        mov1=input_int("Ingresa movimiento")
+        b1.append(mov1)
+        print b1
+        
+def rep2():
+    global mov2
+    mov2=input_int("Ingresa el numero del espacio donde te ubicaras")
+    b2.append(mov2)
+    print b2
+    while b2.count(mov2) ==2:
+        b1.remove(mov2)
+        print b2
+        print (" posicion invalidad, ERORRR")
+        mov2=input_int("Ingresa movimiento")
+        b2.append(mov2)
+        print b2
+#comprobar Resultados
+
+def rev1():
+    g1=set([1,2,3])
+    g2=set([4,5,6])
+    g3=set([7,8,9])
+    g4=set([1,5,9])
+    g5=set([3,5,7])
+    g6=set([1,4,7])
+    g7=set([2,5,8])
+    g8=set([3,6,9])
+    global b1
+    if g1.issubset(b1) or g2.issubset(b1) or g3.issubset(b1)or g4.issubset(b1) or g5.issubset(b1) or g6.issubset(b1)or g7.issubset(b1)or g8.issubset(b1):
+        print ("gana"+name1+" Felicitaciones")
+        a=1
+        
+def rev2():
+    g1=set([1,2,3])
+    g2=set([4,5,6])
+    g3=set([7,8,9])
+    g4=set([1,5,9])
+    g5=set([3,5,7])
+    g6=set([1,4,7])
+    g7=set([2,5,8])
+    g8=set([3,6,9])
+    global b2
+    if g1.issubset(b2) or g2.issubset(b2) or g3.issubset(b2)or g4.issubset(b2) or g5.issubset(b2) or g6.issubset(b2)or g7.issubset(b2)or g8.issubset(b2):
+        print ("gana"+name2+" Felicitaciones")
+        a=2
+
+#Ejecucion del juego
+print "Primer Turno, juega"+name1
+rep1()
+mov11()
+print "segundo Turno, juega"+name2
+rep2()
+mov22()
+print "tercer Turno, juega"+name1
+rep1()
+mov11()
+print "cuarto Turno, juega"+name2
+rep2()
+mov22()
+print "quinto Turno, juega"+name1
+rep1()
+mov11()
+rev1()
+if a==0:
+    print "sexto Turno, juega "+name2
+    rep2()
+    mov22()
+    rev2()
+    if a==0:
+        print "septimo Turno, juega "+name1
+        rep1()
+        mov11()
+        rev1()
+        if a==0:
+            print "octavo Turno, juega "+name2
+            rep2()
+            mov22()
+            rev2()
+            if a==0:
+                print "Noveno Turno, juega"+name1
+                rep1()
+                mov11()
+                rev1()
+                if a==0:
+                    print "Es un empate"
+
+turn_off()   
+
+
+Escuelas de espias
+ef turn_rigth():
+    repeat(R1.turn_left,3)
+def escalera(x):
+    n=(x*(x+1))/2
+    return n
+
+num_esc = input_int("numero de escalones")
+num_bps = escalera(num_esc)
+
+    
+R1 =UsedRobot(1,1,'E',num_bps)
+R1.set_delay(0.1)    
+c= num_esc+1
+
+for i in range(1,num_esc+1):
+    for j in range(1,c-1):
+        R1.put_beeper()
+        R1.move()
+    R1.put_beeper()
+    if i ==num_esc:
+        break
+    if i % 2 == 0:
+        turn_rigth()
+        R1.move()
+        turn_rigth()
+        R1.move()
+    else:
+        R1.turn_left()
+        R1.move()
+        R1.turn_left()
+    c=c-1
+    
+R1.turn_off()  
+
+def linear_vowel():
+    move()
+    i=0
+    while not on_beeper():
+        i=i+1
+        if left_is_clear():
+            turn_left()
+            move()
+        elif front_is_clear():
+                move()
+        else:
+            repeat(turn_left,2)
+    if i==15:
+        print ("la vocal es la A")
+    elif i == 21:
+        print ("la vocal es la E")
+    elif i == 19:
+        print ("la vocal es la I")
+    elif i == 11:
+        print ("la vocal es la 0")
+    elif i == 17:
+        print ("la vocal es la E")
+    else: 
+        print("no is a vowel")
+    turn_left()
+linear_vowel()
+pick_beeper
+turn_off()
+
+
+
+
+def turn_right(Robot):
+    repeat(Robot.turn_left,3)
+def zero():
+    Robot =UsedRobot()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,4)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,4)
+    Robot.turn_off()
+def one():
+    Robot =UsedRobot(2,5)
+    turn_right(Robot)
+    repeat(Robot.move,4)
+    Robot.turn_off()
+    
+def two():
+    Robot =UsedRobot(1,5)
+    repeat(Robot.move,2)
+    turn_right(Robot)
+    repeat(Robot.move,2)
+    turn_right(Robot)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_off()
+   
+def three():
+    Robot =UsedRobot()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,2)
+    repeat(Robot.turn_left,2)
+    Robot.turn_off()  
+   
+   
+def four():
+    Robot =UsedRobot(1,5)
+    turn_right(Robot)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,4)
+    Robot.turn_off() 
+def five():
+    Robot =UsedRobot(3,5)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()    
+    repeat(Robot.move,2)
+    turn_right(Robot)
+    repeat(Robot.move,2)
+    turn_right(Robot)
+    repeat(Robot.move,2)
+    Robot.turn_off() 
+
+def six():
+    Robot =UsedRobot(3,5)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,4)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_off()  
+   
+def seven():
+    Robot =UsedRobot(1,5)
+    repeat(Robot.move,2)
+    turn_right(Robot)
+    repeat(Robot.move,4)
+    Robot.turn_off()
+
+    
+def eight():
+    Robot =UsedRobot(3,5)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,4)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_off()   
+def nine():
+    Robot =UsedRobot(3,5)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,4)
+    Robot.turn_off()
+    
+def graphic_number(number):
+    if number == 0:
+        zero();
+    elif number == 1:
+        one();        
+    elif number == 2:
+        two();
+    elif number == 3:
+        three();
+    elif number == 4:
+        four();
+    elif number == 5:
+        five();
+    elif number == 6:
+        six();
+    elif number == 7:
+        seven();
+    elif number == 8:
+        eight();
+    elif number == 9:
+        nine();
+    else:
+        print(" errorrrr")
+
+number = input_int(" Ingrese el numero")
+graphic_number(number)
+
+
+def turn_right():
+    repeat(turn_left,3)
+
+def turn_back():
+     repeat(turn_left,2)
+
+global lista
+lista=[]
+
+for i in range(6):
+    n=0
+    move()
+    turn_right()
+    move()
+    while on_beeper():
+        pick_beeper()
+        n+=1
+        lista.append(n)
+        turn_back
+        move
+        turn_right
+move()
+orden=sorted(lista)
+turn_back      
+
+for i in range(6):
+    move()
+    turn_left()
+    move()
+    repeat(put_beeper,(order))
+    turn_back()
+    move()
+    turn_left()
+turn_off()
+
+
+
+
+
+
+def turn_right():
+    repeat(turn_left,3)
+
+forma=input_int("elige la forma de ordenar ascendente(1) o descendente(2)")
+turn_left()
+move()
+turn_right()
+repeat(move, 4)
+turn_left()
+move()
+orden=[]
+
+def order():
+    ordenar=0
+    turn_right()
+    move()
+    while on_beeper():
+        pick_beeper()
+        ordenar+=1
+        ordern.append(ordenar)
+        repeat(turn_left,2)
+        move()
+        turn_right()
+        move()
+        if lem(orden) == 6:
+            print(orden)
+            if forma==1:
+                order.short()
+            elif forma==2:
+                order.short(reverse=True)
+            repeat(turn_left,2)
+            for i in range(6):
+                move()
+                turn_left()
+                move()
+                while (orden[i] != 0):
+                    if carries_beeper():
+                        put_beeper()
+                        orden[i]=order
+                    repet(turn_left,2)
+                    move
+                    turn_left
+                        
+turn_off()
+        

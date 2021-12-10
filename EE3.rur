@@ -1,0 +1,148 @@
+def turn_right(Robot):
+    repeat(Robot.turn_left,3)
+def zero():
+    Robot =UsedRobot()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,4)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,4)
+    Robot.turn_off()
+def one():
+    Robot =UsedRobot(2,5)
+    turn_right(Robot)
+    repeat(Robot.move,4)
+    Robot.turn_off()
+    
+def two():
+    Robot =UsedRobot(1,5)
+    repeat(Robot.move,2)
+    turn_right(Robot)
+    repeat(Robot.move,2)
+    turn_right(Robot)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_off()
+   
+def three():
+    Robot =UsedRobot()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,2)
+    repeat(Robot.turn_left,2)
+    Robot.turn_off()  
+   
+   
+def four():
+    Robot =UsedRobot(1,5)
+    turn_right(Robot)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,4)
+    Robot.turn_off() 
+def five():
+    Robot =UsedRobot(3,5)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()    
+    repeat(Robot.move,2)
+    turn_right(Robot)
+    repeat(Robot.move,2)
+    turn_right(Robot)
+    repeat(Robot.move,2)
+    Robot.turn_off() 
+
+def six():
+    Robot =UsedRobot(3,5)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,4)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_off()  
+   
+def seven():
+    Robot =UsedRobot(1,5)
+    repeat(Robot.move,2)
+    turn_right(Robot)
+    repeat(Robot.move,4)
+    Robot.turn_off()
+
+    
+def eight():
+    Robot =UsedRobot(3,5)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,4)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_off()   
+def nine():
+    Robot =UsedRobot(3,5)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    Robot.turn_left()
+    repeat(Robot.move,2)
+    repeat(Robot.turn_left,2)
+    repeat(Robot.move,4)
+    Robot.turn_off()
+    
+def graphic_number(number):
+    if number == 0:
+        zero();
+    elif number == 1:
+        one();        
+    elif number == 2:
+        two();
+    elif number == 3:
+        three();
+    elif number == 4:
+        four();
+    elif number == 5:
+        five();
+    elif number == 6:
+        six();
+    elif number == 7:
+        seven();
+    elif number == 8:
+        eight();
+    elif number == 9:
+        nine();
+    else:
+        print(" errorrrr")
+
+number = input_int(" Ingrese el numero")
+graphic_number(number)

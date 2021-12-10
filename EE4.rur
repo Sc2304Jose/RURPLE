@@ -1,0 +1,23 @@
+punto=0
+linea=0
+
+def turn_right():
+    repeat(turn_left,3)
+turn_left()
+repeat(move,2)
+turn_right()
+
+while front_is_clear():
+    if on_beeper():
+        punto += 1
+    if not left_is_clear():
+        linea += 1
+    move()
+    
+if punto == 1 and linea == 5:
+    print("OK")
+    
+if punto == 6 and linea == 3:
+    print("SOS")
+    
+turn_off()

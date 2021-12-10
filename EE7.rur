@@ -1,0 +1,43 @@
+import random
+
+spy1=UsedRobot(3,8,'w',colour='red')
+spy2=UsedRobot(4,3,'w',colour='red')
+spy3=UsedRobot(6,4,'w',colour='red')
+spy4=UsedRobot(7,6,'w',colour='red')
+spy5=UsedRobot(8,8,'w',colour='red')
+agent=UsedRobot(8,1,'w',colour='red')
+beep=0
+desorden=[]
+original=input_string("ingresa tu mensaje")
+print('mensaje original ', original)
+for i in range(len(original)):
+    desorden.append(original[i]
+random.shuffle(desorden,1)
+cryp="".join(desorden)
+while not beep=2:
+    random.shuffle(desorden,0.1)
+    cryp="".join(desorden)
+    if not left_is_clear():
+        if not front_is_clear():
+            move()
+        else:
+            repeat(turn_left,2)
+        if on_beeper():
+            while on_beeper():
+                pick_beeper()
+                beep+=1
+            if beep==1:
+                beep=0
+                print('el mensaje original es ',original)
+            elif beep==2:
+                print('el mensaje es ', desorden)
+    else:
+        turn_left()
+        move()
+        
+spy1.turn_off
+spy2.turn_off
+spy3.turn_off
+spy4.turn_off
+spy5.turn_off
+agent.turn_off

@@ -1,0 +1,30 @@
+move()
+move()
+turn_left()
+
+matriz=[0,0,0,0,0,0]
+for i in range(6): 
+    move()
+    repeat(turn_left,3)
+    move()
+    while on_beeper():
+        pick_beeper()
+        matriz[i]+=1
+    repeat(turn_left,2)
+    move()
+    repeat(turn_left,3)
+    i +=1
+move()
+repeat(turn_left,2)
+matriz.sort()
+print(matriz)
+for i in range(6):
+    move()
+    turn_left()
+    move()
+    repeat(put_beeper,matriz[i])
+    repeat(turn_left,2)
+    move()
+    turn_left()
+move()
+turn_off()
